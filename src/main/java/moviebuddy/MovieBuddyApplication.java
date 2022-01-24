@@ -22,6 +22,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import moviebuddy.domain.CsvMovieReader;
 import moviebuddy.domain.Movie;
 import moviebuddy.domain.MovieFinder;
 import moviebuddy.util.FileSystemUtils;
@@ -48,7 +49,7 @@ public class MovieBuddyApplication {
         final AtomicBoolean running = new AtomicBoolean(true);
         final BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         final PrintWriter output = new PrintWriter(System.out, false);
-        final MovieFinder movieFinder = new MovieFinder();
+        final MovieFinder movieFinder = new MovieBuddyFactory().movieFinder();
 
         /*--------------------------------------------------------------------------------------*/
         /* 명령어 별 실행 로직을 정의한다. */
